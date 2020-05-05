@@ -3,10 +3,32 @@
 #app {
   max-width: 375px;
   margin: 0 auto;
+  padding-top: 32px;
+}
+
+h1 {
+  margin-bottom: 16px;
 }
 
 /* TYPOGRAPHY */
 
-body {
+html {
   font-family: Roboto, sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.04em;
+}
+
+h1 {
+  font-weight: 700;
+  text-align: center;
+}
+
+/* COLORS */
+
+#app {
+  background-color: #ef5351;
+}
+
+h1 {
+  color: rgba(255, 255, 255, 0.9);
 }
