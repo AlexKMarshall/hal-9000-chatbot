@@ -23,6 +23,15 @@ main {
 
 main > header {
   padding: 16px 0;
+  position: relative;
+}
+
+.avatar {
+  width: 38px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 24px;
 }
 
 #message-container {
@@ -85,6 +94,10 @@ h2 {
 
 /* COLORS */
 
+:root {
+  --primary-color: #1c2541;
+}
+
 html,
 body {
   background-color: #f2ede7;
@@ -92,7 +105,7 @@ body {
 }
 
 #app {
-  background-color: #ef5351;
+  background-color: var(--primary-color);
 }
 
 h1 {
@@ -104,12 +117,12 @@ main {
 }
 
 .message-group.received .message__content {
-  background-color: #ef5351;
+  background-color: var(--primary-color);
   color: rgba(255, 255, 255, 0.9);
 }
 
 .message-group.sent .message__content {
-  background-color: #f7f7f7;
+  background-color: rgba(58, 80, 107, 0.2);
 }
 
 /* Decoration */
