@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Messenger</title>
+  </head>
+  <body>
+    <h1>Messenger</h1>
+    <main>
+      <header>
+        <h2 class="recipient-name">HAL 9000</h2>
+        <img src="" alt="" class="avatar" />
+        <p class="status-text">Online</p>
+      </header>
+      <ul id="message-container">
+        <li class="message-block received">
+          <ul>
+            <li class="message">
+              <span class="message-text">Test message</span>
+            </li>
+            <li class="message">
+              <span class="message-text">Test message</span>
+            </li>
+            <li class="message">
+              <span class="message-text">Test message</span>
+            </li>
+          </ul>
+          <span class="message-block-time">Yesterday</span>
+        </li>
+        <li class="message-block sent">
+          <ul>
+            <li class="message">
+              <span class="message-text">I sent this</span>
+              <span class="message-status">Read</span>
+            </li>
+          </ul>
+          <span class="message-block-time">3 hours ago</span>
+        </li>
+        <li class="message-block sent">
+          <ul>
+            <li class="message">
+              <span class="message-text">Are you there?</span>
+              <span class="message-status">Received</span>
+            </li>
+            <li class="message">
+              <span class="message-text">Hello?</span>
+              <span class="message-status">Sent</span>
+            </li>
+          </ul>
+          <span class="message-block-time">Just now</span>
+        </li>
+      </ul>
+      <footer id="message-input">
+        <label for="message-field">Message:</label>
+        <input type="text" id="message-field" />
+        <button>Send</button>
+      </footer>
+    </main>
+  </body>
+</html>
