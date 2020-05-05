@@ -30,6 +30,7 @@ main > header {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  overflow: auto;
   padding: 24px;
 }
 
