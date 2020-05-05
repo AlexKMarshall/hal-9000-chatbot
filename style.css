@@ -1,0 +1,12 @@
+/* LAYOUT */
+
+#app {
+  max-width: 375px;
+  margin: 0 auto;
+}
+
+/* TYPOGRAPHY */
+
+body {
+  font-family: Roboto, sans-serif;
+}

@@ -3,62 +3,69 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
     <title>Messenger</title>
   </head>
   <body>
-    <h1>Messenger</h1>
-    <main>
-      <header>
-        <h2 class="recipient-name">HAL 9000</h2>
-        <img src="" alt="" class="avatar" />
-        <p class="status-text">Online</p>
-      </header>
-      <ul id="message-container">
-        <li class="message-group received">
-          <ul>
-            <li class="message-group__message">
-              <span class="message__content">Test message</span>
-            </li>
-            <li class="message-group__message">
-              <span class="message__content">Test message</span>
-            </li>
-            <li class="message-group__message">
-              <span class="message__content">Test message</span>
-            </li>
-          </ul>
-          <span class="message-group__time">Yesterday</span>
-        </li>
-        <li class="message-group sent">
-          <ul>
-            <li class="message-group__message">
-              <span class="message__content">I sent this</span>
-              <span class="message__status">Read</span>
-            </li>
-          </ul>
-          <span class="message-group__time">3 hours ago</span>
-        </li>
-        <li class="message-group sent">
-          <ul>
-            <li class="message-group__message">
-              <span class="message__content">Are you there?</span>
-              <span class="message__status">Received</span>
-            </li>
-            <li class="message-group__message">
-              <span class="message__content">Hello?</span>
-              <span class="message__status">Sent</span>
-            </li>
-          </ul>
-          <span class="message-group__time">Just now</span>
-        </li>
-      </ul>
-      <footer>
-        <form action="">
-          <label for="input-message__text">Message:</label>
-          <input type="text" id="input-message__text" />
-          <button id="send">Send</button>
-        </form>
-      </footer>
-    </main>
+    <div id="app">
+      <h1>Messenger</h1>
+      <main>
+        <header>
+          <h2 class="recipient-name">HAL 9000</h2>
+          <img src="" alt="" class="avatar" />
+          <p class="status-text">Online</p>
+        </header>
+        <ul id="message-container">
+          <li class="message-group received">
+            <ul>
+              <li class="message-group__message">
+                <span class="message__content">Test message</span>
+              </li>
+              <li class="message-group__message">
+                <span class="message__content">Test message</span>
+              </li>
+              <li class="message-group__message">
+                <span class="message__content">Test message</span>
+              </li>
+            </ul>
+            <span class="message-group__time">Yesterday</span>
+          </li>
+          <li class="message-group sent">
+            <ul>
+              <li class="message-group__message">
+                <span class="message__content">I sent this</span>
+                <span class="message__status">Read</span>
+              </li>
+            </ul>
+            <span class="message-group__time">3 hours ago</span>
+          </li>
+          <li class="message-group sent">
+            <ul>
+              <li class="message-group__message">
+                <span class="message__content">Are you there?</span>
+                <span class="message__status">Received</span>
+              </li>
+              <li class="message-group__message">
+                <span class="message__content">Hello?</span>
+                <span class="message__status">Sent</span>
+              </li>
+            </ul>
+            <span class="message-group__time">Just now</span>
+          </li>
+        </ul>
+        <footer>
+          <form action="">
+            <label for="input-message__text">Message:</label>
+            <input type="text" id="input-message__text" />
+            <button id="send">Send</button>
+          </form>
+        </footer>
+      </main>
+    </div>
   </body>
 </html>
