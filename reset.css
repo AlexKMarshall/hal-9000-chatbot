@@ -36,6 +36,12 @@ img {
 
 input {
   border: none;
+  font-size: inherit;
+}
+
+::placeholder {
+  font-size: inherit;
+  color: inherit;
 }
 
 /* Button reset modified from https://css-tricks.com/overriding-default-button-styles/ */

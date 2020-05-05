@@ -2,9 +2,9 @@
 
 #app {
   max-width: 375px;
-  margin: 0 auto;
+  margin: 16px auto;
   padding-top: 32px;
-  height: 100vh;
+  height: calc(100vh - 32px);
   display: flex;
   flex-direction: column;
 }
@@ -30,6 +30,14 @@ main > header {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  padding: 24px;
+}
+
+.message__content {
+  display: inline-block;
+  padding: 8px 16px;
+  width: auto;
+  margin-bottom: 5px;
 }
 
 main > footer {
@@ -94,6 +102,15 @@ main {
   background-color: white;
 }
 
+.message-group.received .message__content {
+  background-color: #ef5351;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.message-group.sent .message__content {
+  background-color: #f7f7f7;
+}
+
 /* Decoration */
 #app {
   border-radius: 15px;
@@ -107,6 +124,10 @@ main {
 
 main > header {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.message__content {
+  border-radius: 10px;
 }
 
 main > footer {
