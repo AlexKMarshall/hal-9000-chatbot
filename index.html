@@ -9,6 +9,10 @@
     />
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/3833d88ce9.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Messenger</title>
   </head>
   <body>
@@ -70,9 +74,15 @@
         </ul>
         <footer>
           <form action="">
-            <label for="input-message__text">Message:</label>
-            <input type="text" id="input-message__text" />
-            <button id="send">Send</button>
+            <label for="input-message__text" style="display: none;"
+              >Message:</label
+            >
+            <input
+              type="text"
+              id="input-message__text"
+              placeholder="Type something..."
+            />
+            <button id="send"><i class="far fa-paper-plane"></i></button>
           </form>
         </footer>
       </main>

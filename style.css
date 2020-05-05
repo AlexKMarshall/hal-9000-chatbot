@@ -32,6 +32,19 @@ main > header {
   justify-content: flex-end;
 }
 
+main > footer {
+  height: 60px;
+  padding: 24px;
+}
+
+form {
+  display: flex;
+}
+
+form input {
+  flex-grow: 1;
+}
+
 /* TYPOGRAPHY */
 
 html {
@@ -84,7 +97,7 @@ main {
 /* Decoration */
 #app {
   border-radius: 15px;
-  box-shadow: 0 0 10px slategray;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 main {
@@ -94,4 +107,8 @@ main {
 
 main > header {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+main > footer {
+  border-top: 1px solid #e5e5e5;
 }
