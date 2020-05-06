@@ -1,8 +1,4 @@
-const INITIAL_MESSAGES = [
-  { type: "inbound", content: "a test message" },
-  { type: "inbound", content: "next message" },
-  { type: "outbound", content: "I sent this message" },
-];
+const INITIAL_MESSAGES = [];
 
 const messageContent = (content) => {
   const div = document.createElement("div");
