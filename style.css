@@ -55,11 +55,11 @@ main > footer {
   padding: 24px;
 }
 
-form {
+.message-form {
   display: flex;
 }
 
-form input {
+.message-form input {
   flex-grow: 1;
 }
 
