@@ -13,6 +13,12 @@
       src="https://kit.fontawesome.com/3833d88ce9.js"
       crossorigin="anonymous"
     ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js" defer></script>
     <title>Messenger</title>
   </head>
   <body>
@@ -26,108 +32,14 @@
           <p class="status-text small">Online</p>
           <img class="avatar" src="/images/robot-red.svg" alt="robot avatar" />
         </header>
-        <ul id="message-container">
-          <li class="message-group sent">
-            <ul>
-              <li class="message-group__message">
-                <div class="message__content">I sent this</div>
-                <!-- <div class="message__status">Read</div> -->
-              </li>
-            </ul>
-            <!-- <div class="message-group__time">3 hours ago</div> -->
-          </li>
-          <li class="message-group received">
-            <ul>
-              <li class="message-group__message">
-                <div class="message__content">Test message</div>
-              </li>
-              <li class="message-group__message">
-                <div class="message__content">Test message</div>
-              </li>
-              <li class="message-group__message">
-                <div class="message__content">Test message</div>
-              </li>
-            </ul>
-            <!-- <div class="message-group__time">Yesterday</div> -->
-          </li>
-          <li class="message-group sent">
-            <ul>
-              <li class="message-group__message">
-                <div class="message__content">I sent this</div>
-                <!-- <div class="message__status">Read</div> -->
-              </li>
-            </ul>
-            <!-- <div class="message-group__time">3 hours ago</div> -->
-          </li>
-          <li class="message-group sent">
-            <ul>
-              <li class="message-group__message">
-                <div class="message__content">Are you there?</div>
-                <!-- <div class="message__status">Received</div> -->
-              </li>
-              <li class="message-group__message">
-                <div class="message__content">Hello?</div>
-                <!-- <div class="message__status">Sent</div> -->
-              </li>
-            </ul>
-            <!-- <div class="message-group__time">Just now</div> -->
-          </li>
-          <li class="message-group sent">
-            <ul>
-              <li class="message-group__message">
-                <div class="message__content">I sent this</div>
-                <!-- <div class="message__status">Read</div> -->
-              </li>
-            </ul>
-            <!-- <div class="message-group__time">3 hours ago</div> -->
-          </li>
-          <li class="message-group received">
-            <ul>
-              <li class="message-group__message">
-                <div class="message__content">Test message</div>
-              </li>
-              <li class="message-group__message">
-                <div class="message__content">
-                  Test a long message that spans multiple lines
-                </div>
-              </li>
-              <li class="message-group__message">
-                <div class="message__content">Test message</div>
-              </li>
-            </ul>
-            <!-- <div class="message-group__time">Yesterday</div> -->
-          </li>
-          <li class="message-group sent">
-            <ul>
-              <li class="message-group__message">
-                <div class="message__content">I sent this</div>
-                <!-- <div class="message__status">Read</div> -->
-              </li>
-            </ul>
-            <!-- <div class="message-group__time">3 hours ago</div> -->
-          </li>
-          <li class="message-group sent">
-            <ul>
-              <li class="message-group__message">
-                <div class="message__content">Are you there?</div>
-                <!-- <div class="message__status">Received</div> -->
-              </li>
-              <li class="message-group__message">
-                <div class="message__content">Hello?</div>
-                <!-- <div class="message__status">Sent</div> -->
-              </li>
-            </ul>
-            <!-- <div class="message-group__time">Just now</div> -->
-          </li>
-        </ul>
+        <ul id="message-container"></ul>
         <footer>
-          <form action="">
-            <label for="input-message__text" style="display: none;"
-              >Message:</label
-            >
+          <form id="input-form" class="message-form">
+            <label for="input-message" style="display: none;">Message:</label>
             <input
               type="text"
-              id="input-message__text"
+              id="input-message"
+              class="input-message__text"
               placeholder="Type something..."
             />
             <button id="send" aria-label="send">

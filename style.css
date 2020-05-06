@@ -55,11 +55,11 @@ main > footer {
   padding: 24px;
 }
 
-form {
+.message-form {
   display: flex;
 }
 
-form input {
+.message-form input {
   flex-grow: 1;
 }
 
@@ -84,11 +84,11 @@ h2 {
   font-size: 12px;
 }
 
-.message-group.received {
+.inbound {
   text-align: left;
 }
 
-.message-group.sent {
+.outbound {
   text-align: right;
 }
 
@@ -116,12 +116,12 @@ main {
   background-color: white;
 }
 
-.message-group.received .message__content {
+.message.inbound .message__content {
   background-color: var(--primary-color);
   color: rgba(255, 255, 255, 0.9);
 }
 
-.message-group.sent .message__content {
+.message.outbound .message__content {
   background-color: #f7f7f7;
 }
 
