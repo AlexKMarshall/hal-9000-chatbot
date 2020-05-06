@@ -13,10 +13,10 @@ const messageContent = (content) => {
   return div;
 };
 
-const messageElement = (message) => {
+const messageElement = ({ type, content }) => {
   const li = document.createElement("li");
-  li.classList.add("message", message.type);
-  li.appendChild(messageContent(message.content));
+  li.classList.add("message", type);
+  li.appendChild(messageContent(content));
   return li;
 };
 
@@ -30,9 +30,13 @@ messageElements.forEach((messageElement) =>
   messageContainer.append(messageElement)
 );
 
+const inputField = document.getElementById("input-message");
 const sendButton = document.getElementById("send");
 
 sendButton.addEventListener("click", () => {
-  const message = messageElement(TEST_MESSAGE);
+  const message = messageElement({
+    type: "outbound",
+    content: inputField.value,
+  });
   messageContainer.append(message);
 });
