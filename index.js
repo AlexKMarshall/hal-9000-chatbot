@@ -4,8 +4,6 @@ const INITIAL_MESSAGES = [
   { type: "outbound", content: "I sent this message" },
 ];
 
-const TEST_MESSAGE = { type: "outbound", content: "a sent message" };
-
 const messageContent = (content) => {
   const div = document.createElement("div");
   div.classList.add("message__content");
@@ -30,13 +28,20 @@ messageElements.forEach((messageElement) =>
   messageContainer.append(messageElement)
 );
 
-const inputField = document.getElementById("input-message");
-const sendButton = document.getElementById("send");
+const form = document.getElementById("input-form");
 
-sendButton.addEventListener("click", () => {
+const inputField = document.getElementById("input-message");
+
+const sendMessage = (content) => {
   const message = messageElement({
     type: "outbound",
-    content: inputField.value,
+    content: content,
   });
   messageContainer.append(message);
+};
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  sendMessage(inputField.value);
+  inputField.value = "";
 });
