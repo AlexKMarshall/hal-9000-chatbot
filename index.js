@@ -52,13 +52,19 @@ const sendMessage = (content) => {
   appendMessage({ type: "outbound", content: content });
 };
 
-const receiveMessage = (response) => {
+const delay = (ms) => {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+};
+
+const receiveMessage = async (response) => {
   // Split bot response into separate messages by sentence
   // TODO handle ellipses
   messages = response.split(".").filter((message) => message !== " ");
-  messages.forEach((message) => {
+
+  for (const message of messages) {
+    await delay(1000);
     appendMessage({ type: "inbound", content: message });
-  });
+  }
 };
 
 const appendMessage = ({ content, type }) => {
