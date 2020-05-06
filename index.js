@@ -15,7 +15,6 @@ const RESPONSES = [
 
 const getBotResponse = () => {
   const randomIndex = Math.floor(Math.random() * RESPONSES.length);
-  console.log(randomIndex);
   return RESPONSES[randomIndex];
 };
 
@@ -53,8 +52,13 @@ const sendMessage = (content) => {
   appendMessage({ type: "outbound", content: content });
 };
 
-const receiveMessage = (content) => {
-  appendMessage({ type: "inbound", content: content });
+const receiveMessage = (response) => {
+  // Split bot response into separate messages by sentence
+  // TODO handle ellipses
+  messages = response.split(".").filter((message) => message !== " ");
+  messages.forEach((message) => {
+    appendMessage({ type: "inbound", content: message });
+  });
 };
 
 const appendMessage = ({ content, type }) => {
