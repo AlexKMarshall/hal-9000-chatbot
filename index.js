@@ -1,3 +1,11 @@
+const RESPONSES = ["response 1", "response 2", "response 3", "response x"];
+
+const getBotResponse = () => {
+  const randomIndex = Math.floor(Math.random() * RESPONSES.length);
+  console.log(randomIndex);
+  return RESPONSES[randomIndex];
+};
+
 const INITIAL_MESSAGES = [];
 
 const messageContent = (content) => {
@@ -48,5 +56,5 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   sendMessage(inputField.value);
   inputField.value = "";
-  receiveMessage("computer says no");
+  receiveMessage(getBotResponse());
 });
