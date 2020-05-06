@@ -33,8 +33,16 @@ const form = document.getElementById("input-form");
 const inputField = document.getElementById("input-message");
 
 const sendMessage = (content) => {
+  appendMessage({ type: "outbound", content: content });
+};
+
+const receiveMessage = (content) => {
+  appendMessage({ type: "inbound", content: content });
+};
+
+const appendMessage = ({ content, type }) => {
   const message = messageElement({
-    type: "outbound",
+    type: type,
     content: content,
   });
   messageContainer.append(message);
@@ -44,4 +52,5 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   sendMessage(inputField.value);
   inputField.value = "";
+  receiveMessage("computer says no");
 });
