@@ -165,3 +165,20 @@ main > footer {
 .animate-entry.hidden {
   transform: scale(0);
 }
+
+.status-text.typing:after {
+  content: "\2026"; /* eliipsis character */
+  display: inline-block;
+  vertical-align: bottom;
+  overflow: hidden;
+  width: 0;
+  position: absolute;
+  text-align: left;
+  animation: ellipsis steps(4, end) 900ms infinite;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 1em;
+  }
+}

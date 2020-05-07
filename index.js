@@ -56,6 +56,21 @@ const delay = (ms) => {
   return new Promise((resolve) => setTimeout(resolve, ms));
 };
 
+const setRecipientStatus = (status) => {
+  switch (status) {
+    case "typing":
+      recipientStatus.classList.add("typing");
+      recipientStatus.innerText = "is typing";
+      return;
+    case "online":
+      recipientStatus.classList.remove("typing");
+      recipientStatus.innerText = "Online";
+      return;
+    default:
+      return;
+  }
+};
+
 const receiveMessage = async (response) => {
   // Split bot response into separate messages by sentence
   // TODO handle ellipses
@@ -64,11 +79,11 @@ const receiveMessage = async (response) => {
   await delay(1000); // Bot waits to respond
 
   for (const message of messages) {
-    recipientStatus.innerText = "is typing";
+    setRecipientStatus("typing");
     await delay(messageTypingDurationMS(message));
     appendMessage({ type: "inbound", content: message });
   }
-  recipientStatus.innerText = "Online";
+  setRecipientStatus("online");
 };
 
 const appendMessage = async ({ content, type }) => {
