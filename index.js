@@ -28,10 +28,10 @@ const messageContent = (content) => {
 };
 
 const messageElement = ({ type, content }) => {
-  const li = document.createElement("li");
-  li.classList.add("message", "animate-entry", type);
-  li.appendChild(messageContent(content));
-  return li;
+  const messageDiv = document.createElement("div");
+  messageDiv.classList.add("message", "animate-entry", type);
+  messageDiv.appendChild(messageContent(content));
+  return messageDiv;
 };
 
 const messageElements = INITIAL_MESSAGES.map((message) =>
