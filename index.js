@@ -38,11 +38,9 @@ const messageElements = INITIAL_MESSAGES.map((message) =>
   messageElement(message)
 );
 
-const messageContainer = document.getElementById("message-container");
+const messageList = document.getElementById("message-list");
 
-messageElements.forEach((messageElement) =>
-  messageContainer.append(messageElement)
-);
+messageElements.forEach((messageElement) => messageList.append(messageElement));
 
 const form = document.getElementById("input-form");
 const inputField = document.getElementById("input-message");
@@ -92,7 +90,7 @@ const appendMessage = async ({ content, type }) => {
     content: content,
   });
   message.classList.add("hidden"); // Hide message when first adding to DOM to allow animation
-  messageContainer.append(message);
+  messageList.append(message);
   await delay(10); // Delay so that CSS can manage the transition from hidden
   message.classList.remove("hidden");
 };

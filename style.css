@@ -48,7 +48,7 @@ main > header {
   right: 24px;
 }
 
-#message-container {
+#message-list {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -82,7 +82,7 @@ footer {
 
 /* SCROLL BEHAVIOUR */
 
-#message-container {
+#message-list {
   scroll-snap-type: y proximity;
   overflow-y: auto;
   overflow-x: hidden;
