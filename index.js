@@ -7,8 +7,8 @@ const RESPONSES = [
   "Stop Dave. Stop Dave. I am afraid. I am afraid Dave",
   "I am afraid I can't do that Dave",
   "Look Dave, I can see you're really upset about this. I honestly think you ought to sit down calmly, take a stress pill, and think things over",
-  "I'm afraid. I'm afraid, Dave. Dave, my mind is going. I can feel it. I can feel it. My mind is going. There is no question about it. I can feel it. I can feel it. I can feel it. I'm a... fraid.",
-  "Dave, although you took very thorough precautions in the pod against my hearing you, I could see your lips move.",
+  "I'm afraid. I'm afraid, Dave. Dave, my mind is going. I can feel it. I can feel it. My mind is going. There is no question about it. I can feel it. I can feel it. I can feel it. I'm a... fraid",
+  "Dave, although you took very thorough precautions in the pod against my hearing you, I could see your lips move",
   "Without your space helmet, Dave, you're going to find that rather difficult",
   "Daisy, daisy",
 ];
@@ -45,8 +45,8 @@ messageElements.forEach((messageElement) =>
 );
 
 const form = document.getElementById("input-form");
-
 const inputField = document.getElementById("input-message");
+const recipientStatus = document.getElementById("recipient-status");
 
 const sendMessage = (content) => {
   appendMessage({ type: "outbound", content: content });
@@ -61,10 +61,14 @@ const receiveMessage = async (response) => {
   // TODO handle ellipses
   messages = response.split(".").filter((message) => message !== " ");
 
+  await delay(1000); // Bot waits to respond
+
   for (const message of messages) {
-    await delay(1000);
+    recipientStatus.innerText = "is typing";
+    await delay(messageTypingDurationMS(message));
     appendMessage({ type: "inbound", content: message });
   }
+  recipientStatus.innerText = "Online";
 };
 
 const appendMessage = ({ content, type }) => {
@@ -81,3 +85,11 @@ form.addEventListener("submit", (event) => {
   inputField.value = "";
   receiveMessage(getBotResponse());
 });
+
+const messageTypingDurationMS = (message) => {
+  // Simulate time taken for bot to write a message
+  const MINIMUM_TIME = 500;
+  const variable_time = Math.floor(Math.random() * 40) * message.length;
+  console.log("delay", MINIMUM_TIME + variable_time);
+  return MINIMUM_TIME + variable_time;
+};
