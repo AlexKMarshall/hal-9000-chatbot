@@ -1,12 +1,22 @@
 /* LAYOUT */
 
 #app {
-  max-width: 375px;
-  margin: 16px auto;
+  /* max-width: 375px;
+  margin: 16px auto; */
   padding-top: 32px;
   height: calc(100vh - 32px);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 650px) {
+  #app {
+    --vertical-margin: 16px;
+    max-width: calc(600px - (2 * 16px));
+    margin: var(--vertical-margin) auto;
+    height: calc(100vh - 2 * var(--vertical-margin));
+  }
 }
 
 h1 {
@@ -126,13 +136,15 @@ main {
 }
 
 /* Decoration */
-#app {
-  border-radius: 15px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+@media screen and (min-width: 650px) {
+  #app {
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
 }
 
 main {
-  border-radius: 15px;
+  border-radius: 15px 15px 0 0;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
