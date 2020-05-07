@@ -147,3 +147,21 @@ main > header {
 main > footer {
   border-top: 1px solid #e5e5e5;
 }
+
+/* Animation */
+
+.animate-entry {
+  transition: transform 200ms ease-in-out;
+}
+
+.animate-entry.inbound {
+  transform-origin: left top;
+}
+
+.animate-entry.outbound {
+  transform-origin: right top;
+}
+
+.animate-entry.hidden {
+  transform: scale(0);
+}

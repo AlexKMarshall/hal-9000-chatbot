@@ -29,7 +29,7 @@ const messageContent = (content) => {
 
 const messageElement = ({ type, content }) => {
   const li = document.createElement("li");
-  li.classList.add("message", type);
+  li.classList.add("message", "animate-entry", type);
   li.appendChild(messageContent(content));
   return li;
 };
@@ -71,12 +71,15 @@ const receiveMessage = async (response) => {
   recipientStatus.innerText = "Online";
 };
 
-const appendMessage = ({ content, type }) => {
+const appendMessage = async ({ content, type }) => {
   const message = messageElement({
     type: type,
     content: content,
   });
+  message.classList.add("hidden"); // Hide message when first adding to DOM to allow animation
   messageContainer.append(message);
+  await delay(10); // Delay so that CSS can manage the transition from hidden
+  message.classList.remove("hidden");
 };
 
 form.addEventListener("submit", (event) => {
