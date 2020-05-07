@@ -81,6 +81,16 @@ footer {
   margin: 10px 0;
 }
 
+/* SCROLL BEHAVIOUR */
+/* 
+#message-container {
+  scroll-snap-type: y proximity;
+}
+
+.message:last-child {
+  scroll-snap-align: end;
+} */
+
 /* TYPOGRAPHY */
 
 html {
