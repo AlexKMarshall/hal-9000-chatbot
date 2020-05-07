@@ -52,8 +52,7 @@ main > header {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  /* justify-content: flex-end; */
-  overflow: auto;
+
   padding: 24px;
 }
 
@@ -85,10 +84,13 @@ footer {
 
 #message-container {
   scroll-snap-type: y proximity;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .message:last-child {
   scroll-snap-align: end;
+  scroll-margin-block-end: 1.5rem; /*TODO this seems hacky, find another way to fix the scroll position */
 }
 
 /* TYPOGRAPHY */
