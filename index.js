@@ -1,10 +1,6 @@
-const messageList = document.querySelector("#message-list");
 const messageListJQ = $("#message-list");
-const form = document.getElementById("input-form");
 const formJQ = $("form");
-const inputField = document.getElementById("input-message");
 const inputJQ = $("input");
-const recipientStatus = document.getElementById("recipient-status");
 const recipientStatusJQ = $("#recipient-status");
 
 const getLatestMessageBlock = () => $(".message-block").last();
@@ -91,68 +87,7 @@ const setRecipientStatus = (status) => {
 
 formJQ.submit((event) => {
   event.preventDefault();
-  addUserMessage(inputField.value);
-  inputField.value = "";
+  addUserMessage(inputJQ.val());
+  inputJQ.val("");
   botResponds();
 });
-
-// STUFF BELOW THIS IS OLD
-
-// const INITIAL_MESSAGES = [];
-
-// const messageContent = (content) => {
-//   const div = document.createElement("div");
-//   div.classList.add("message__content");
-//   div.innerText = content;
-//   return div;
-// };
-
-// const messageElement = ({ type, content }) => {
-//   const messageDiv = document.createElement("div");
-//   messageDiv.classList.add("message", "animate-entry", type);
-//   messageDiv.appendChild(messageContent(content));
-//   return messageDiv;
-// };
-
-// const messageElements = INITIAL_MESSAGES.map((message) =>
-//   messageElement(message)
-// );
-
-// messageElements.forEach((messageElement) => messageList.append(messageElement));
-
-// const sendMessage = (content) => {
-//   appendMessage({ type: "outbound", content: content });
-// };
-
-// const receiveMessage = async (response) => {
-//   // Split bot response into separate messages by sentence
-//   // TODO handle ellipses
-//   messages = response.split(".").filter((message) => message !== " ");
-
-//   await delay(1000); // Bot waits to respond
-
-//   for (const message of messages) {
-//     setRecipientStatus("typing");
-//     await delay(messageTypingDurationMS(message));
-//     appendMessage({ type: "inbound", content: message });
-//   }
-//   setRecipientStatus("online");
-// };
-
-// const appendMessage = async ({ content, type }) => {
-//   const message = messageElement({
-//     type: type,
-//     content: content,
-//   });
-//   message.classList.add("hidden"); // Hide message when first adding to DOM to allow animation
-//   messageList.append(message);
-//   await delay(10); // Delay so that CSS can manage the transition from hidden
-//   message.classList.remove("hidden");
-// };
-
-// // form.addEventListener("submit", (event) => {
-// //   event.preventDefault();
-// //   sendMessage(inputField.value);
-// //   inputField.value = "";
-// //   receiveMessage(getBotResponse());
-// // });
