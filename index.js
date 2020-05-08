@@ -1,3 +1,59 @@
+const messageList = document.querySelector("#message-list");
+const messageListJQ = $("#message-list");
+
+const getLatestMessageBlock = () => $(".message-block").last();
+
+const getLatestBlockDirection = () => {
+  const possibleDirections = ["inbound", "outbound"];
+  for (direction of possibleDirections) {
+    if (getLatestMessageBlock().hasClass(direction)) return direction;
+  }
+  return null;
+};
+
+const newMessageBlock = (direction) => {
+  return $(`<div class="message-block ${direction}"></div>`);
+};
+
+const newMessage = (messageContent, direction) => {
+  return $(`
+    <div class="message hidden animate-entry ${direction}">
+      <div class="message__content">${messageContent}</div>
+    </div>
+  `);
+};
+
+const addUserMessage = async (messageContent) => {
+  const message = newMessage(messageContent, "outbound");
+
+  if (getLatestBlockDirection() === "outbound") {
+    getLatestMessageBlock().append(message);
+  } else {
+    const messageBlock = newMessageBlock("outbound").append(message);
+    messageListJQ.append(messageBlock);
+  }
+
+  await delay(10); // Delay so that CSS can manage the transition from hidden
+  message.removeClass("hidden");
+};
+
+const addBotMessage = async (messageContent) => {
+  const message = newMessage(messageContent, "inbound");
+  console.log("message", message);
+  console.log("latest block dir", getLatestBlockDirection());
+  //await some time
+  if (getLatestBlockDirection() === "inbound") {
+    getLatestMessageBlock().append(message);
+  } else {
+    const messageBlock = newMessageBlock("inbound").append(message);
+    console.log("messageBlock", messageBlock);
+    messageListJQ.append(messageBlock);
+  }
+
+  await delay(10); // Delay so that CSS can manage the transition from hidden
+  message.removeClass("hidden");
+};
+
 const RESPONSES = [
   "I know I've made some very poor decisions recently, but I can give you my complete assurance that my work will be back to normal. I've still got the greatest enthusiasm and confidence in the mission. And I want to help you",
   "This mission is too important for me to allow you to jeopardize it",
@@ -37,8 +93,6 @@ const messageElement = ({ type, content }) => {
 const messageElements = INITIAL_MESSAGES.map((message) =>
   messageElement(message)
 );
-
-const messageList = document.getElementById("message-list");
 
 messageElements.forEach((messageElement) => messageList.append(messageElement));
 
