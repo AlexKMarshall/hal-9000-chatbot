@@ -56,6 +56,11 @@ main > header {
   padding: 24px;
 }
 
+#message-list > :first-child {
+  /* work around for justify-content: flex-end bug https://github.com/philipwalton/flexbugs/issues/53 */
+  margin-top: auto;
+}
+
 .message__content {
   display: inline-block;
   padding: 8px 16px;
