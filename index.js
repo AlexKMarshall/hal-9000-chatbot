@@ -1,7 +1,7 @@
-const messageListJQ = $("#message-list");
-const formJQ = $("form");
-const inputJQ = $("input");
-const recipientStatusJQ = $("#recipient-status");
+const messageList = $("#message-list");
+const form = $("form");
+const input = $("input");
+const recipientStatus = $("#recipient-status");
 
 const getLatestMessageBlock = () => $(".message-block").last();
 
@@ -32,7 +32,7 @@ const addUserMessage = async (messageContent) => {
     getLatestMessageBlock().append(message);
   } else {
     const messageBlock = newMessageBlock("outbound").append(message);
-    messageListJQ.append(messageBlock);
+    messageList.append(messageBlock);
   }
 
   await delay(10); // Delay so that CSS can manage the transition from hidden
@@ -46,7 +46,7 @@ const addBotMessage = async (messageContent) => {
     getLatestMessageBlock().append(message);
   } else {
     const messageBlock = newMessageBlock("inbound").append(message);
-    messageListJQ.append(messageBlock);
+    messageList.append(messageBlock);
   }
 
   await delay(10); // Delay so that CSS can manage the transition from hidden
@@ -73,24 +73,24 @@ const botResponds = async () => {
 const setRecipientStatus = (status) => {
   switch (status) {
     case "typing":
-      recipientStatusJQ.addClass("typing");
-      recipientStatusJQ.text("is typing");
+      recipientStatus.addClass("typing");
+      recipientStatus.text("is typing");
       return;
     case "online":
-      recipientStatusJQ.removeClass("typing");
-      recipientStatusJQ.text("Online");
+      recipientStatus.removeClass("typing");
+      recipientStatus.text("Online");
       return;
     default:
       return;
   }
 };
 
-formJQ.submit((event) => {
+form.submit((event) => {
   event.preventDefault();
-  const message = inputJQ.val().trim();
+  const message = input.val().trim();
   if (!message) return;
 
   addUserMessage(message);
-  inputJQ.val("");
+  input.val("");
   botResponds();
 });
