@@ -192,8 +192,28 @@ main > header {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.message__content {
-  border-radius: 10px;
+.message.inbound .message__content {
+  border-radius: 3px 10px 10px 3px;
+}
+
+.message.inbound:first-child .message__content {
+  border-top-left-radius: 10px;
+}
+
+.message.inbound:last-child .message__content {
+  border-bottom-left-radius: 10px;
+}
+
+.message.outbound .message__content {
+  border-radius: 10px 3px 3px 10px;
+}
+
+.message.outbound:first-child .message__content {
+  border-top-right-radius: 10px;
+}
+
+.message.outbound:last-child .message__content {
+  border-bottom-right-radius: 10px;
 }
 
 main > footer {
