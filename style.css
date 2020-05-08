@@ -71,6 +71,9 @@ main > header {
 main > footer {
   height: 60px;
   padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .message-form {
@@ -81,7 +84,7 @@ main > footer {
   flex-grow: 1;
 }
 
-footer {
+#app > footer {
   margin: 10px 0;
 }
 
@@ -134,7 +137,8 @@ footer small {
 /* COLORS */
 
 :root {
-  --primary-color: #ef5351;
+  --primary-color: rgb(239, 83, 81);
+  --primary-color-transparent: rgba(239, 83, 81, 0.5);
 }
 
 html,
@@ -164,7 +168,7 @@ main {
   background-color: #f7f7f7;
 }
 
-/* Decoration */
+/* DECORATION */
 @media screen and (min-width: 650px) {
   #app {
     border-radius: 15px;
@@ -173,6 +177,10 @@ main {
 
   main {
     border-radius: 15px 15px 0 0;
+  }
+
+  main > footer {
+    border-radius: 0 0 15px 15px;
   }
 }
 
@@ -192,7 +200,7 @@ main > footer {
   border-top: 1px solid #e5e5e5;
 }
 
-/* Animation */
+/* ANIMATION */
 
 .animate-entry {
   transition: transform 200ms ease-in-out;
@@ -225,4 +233,31 @@ main > footer {
   to {
     width: 1em;
   }
+}
+
+/* USER INPUT */
+
+main > footer:focus-within {
+  box-shadow: inset 0 0 5px var(--primary-color);
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  color: rgba(0, 0, 0, 0.8);
+
+  width: 38px;
+  height: 38px; /*TODO calc this */
+  border-radius: 50%;
+  transition: all 200ms ease-in-out;
+}
+
+button:focus,
+button:hover,
+button:active {
+  outline: none;
+  background-color: var(--primary-color);
+  color: rgba(255, 255, 255, 0.9);
 }
