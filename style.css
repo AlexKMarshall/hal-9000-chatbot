@@ -96,7 +96,7 @@ main > footer {
   overflow-x: hidden;
 }
 
-.message:last-child {
+.message-block:last-child {
   scroll-snap-align: end;
   scroll-margin-block-end: 1.5rem; /*TODO this seems hacky, find another way to fix the scroll position */
 }
