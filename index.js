@@ -87,7 +87,10 @@ const setRecipientStatus = (status) => {
 
 formJQ.submit((event) => {
   event.preventDefault();
-  addUserMessage(inputJQ.val());
+  const message = inputJQ.val().trim();
+  if (!message) return;
+
+  addUserMessage(message);
   inputJQ.val("");
   botResponds();
 });
