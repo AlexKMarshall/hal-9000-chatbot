@@ -7,7 +7,7 @@ const RESPONSES = [
   "Stop Dave. Stop Dave. I am afraid. I am afraid Dave",
   "I am afraid I can't do that Dave",
   "Look Dave, I can see you're really upset about this. I honestly think you ought to sit down calmly, take a stress pill, and think things over",
-  "I'm afraid. I'm afraid, Dave. Dave, my mind is going. I can feel it. I can feel it. My mind is going. There is no question about it. I can feel it. I can feel it. I can feel it. I'm a... fraid",
+  "I'm afraid. I'm afraid, Dave. Dave, my mind is going. I can feel it. I can feel it. My mind is going. There is no question about it. I can feel it. I can feel it. I can feel it. I'm a…. fraid",
   "Dave, although you took very thorough precautions in the pod against my hearing you, I could see your lips move",
   "Without your space helmet, Dave, you're going to find that rather difficult",
   "Daisy, daisy",
