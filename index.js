@@ -25,32 +25,32 @@ const newMessage = (messageContent, direction) => {
   `);
 };
 
-const addUserMessage = async (messageContent) => {
-  const message = newMessage(messageContent, "outbound");
+const newTimeElement = () => $(`<div class="timestamp">${currentTime()}</div>`);
 
-  if (getLatestBlockDirection() === "outbound") {
-    getLatestMessageBlock().append(message);
+const addMessage = async (messageContent, direction) => {
+  const message = newMessage(messageContent, direction);
+
+  let messageBlock;
+  if (getLatestBlockDirection() === direction) {
+    // Latest block is same direction so append message to it
+    messageBlock = getLatestMessageBlock().append(message);
   } else {
-    const messageBlock = newMessageBlock("outbound").append(message);
+    // Latest block is in other direction so create new block
+    messageBlock = newMessageBlock(direction).append(message);
     messageList.append(messageBlock);
   }
+  messageBlock.append(newTimeElement);
 
   await delay(10); // Delay so that CSS can manage the transition from hidden
   message.removeClass("hidden");
 };
 
+const addUserMessage = async (messageContent) => {
+  addMessage(messageContent, "outbound");
+};
+
 const addBotMessage = async (messageContent) => {
-  const message = newMessage(messageContent, "inbound");
-
-  if (getLatestBlockDirection() === "inbound") {
-    getLatestMessageBlock().append(message);
-  } else {
-    const messageBlock = newMessageBlock("inbound").append(message);
-    messageList.append(messageBlock);
-  }
-
-  await delay(10); // Delay so that CSS can manage the transition from hidden
-  message.removeClass("hidden");
+  addMessage(messageContent, "inbound");
 };
 
 const botResponds = async () => {
