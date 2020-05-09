@@ -61,11 +61,19 @@ main > header {
   margin-top: auto;
 }
 
+.message-block {
+  margin-bottom: 10px;
+}
+
 .message__content {
   display: inline-block;
   padding: 8px 16px;
   width: auto;
   margin-bottom: 5px;
+}
+
+aside.timestamp {
+  padding: 0 16px;
 }
 
 main > footer {
@@ -130,6 +138,11 @@ h2 {
   text-align: right;
 }
 
+aside.timestamp {
+  font-size: 12px;
+  font-weight: 700;
+}
+
 footer small {
   font-size: 10px;
 }
@@ -166,6 +179,10 @@ main {
 
 .message.outbound .message__content {
   background-color: #f7f7f7;
+}
+
+aside.timestamp {
+  color: rgba(0, 0, 0, 0.5);
 }
 
 /* DECORATION */
