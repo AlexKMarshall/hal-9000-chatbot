@@ -13,33 +13,40 @@ const getLatestBlockDirection = () => {
   return null;
 };
 
-const newMessageBlock = (direction) => {
-  return $(`<div class="message-block ${direction}"></div>`);
-};
+const newMessageBlock = (direction) =>
+  $(`
+    <div class="message-block ${direction}">
+      <section class="messages">
+      </section>
+      <aside class="timestamp"></aside>
+    </div>
+  `);
 
-const newMessage = (messageContent, direction) => {
-  return $(`
+const newMessage = (messageContent, direction) =>
+  $(`
     <div class="message hidden animate-entry ${direction}">
       <div class="message__content">${messageContent}</div>
     </div>
   `);
-};
 
-const newTimeElement = () => $(`<div class="timestamp">${currentTime()}</div>`);
+const updateTimestamp = (messageBlock) =>
+  messageBlock.children("aside.timestamp").text(currentTime());
 
 const addMessage = async (messageContent, direction) => {
   const message = newMessage(messageContent, direction);
 
   let messageBlock;
   if (getLatestBlockDirection() === direction) {
-    // Latest block is same direction so append message to it
-    messageBlock = getLatestMessageBlock().append(message);
+    // Latest block is same direction so use it
+    messageBlock = getLatestMessageBlock();
   } else {
     // Latest block is in other direction so create new block
-    messageBlock = newMessageBlock(direction).append(message);
+    messageBlock = newMessageBlock(direction);
     messageList.append(messageBlock);
   }
-  messageBlock.append(newTimeElement);
+
+  messageBlock.children("section.messages").append(message);
+  updateTimestamp(messageBlock);
 
   await delay(10); // Delay so that CSS can manage the transition from hidden
   message.removeClass("hidden");
