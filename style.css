@@ -48,6 +48,10 @@ main > header {
   right: 24px;
 }
 
+.avatar img {
+  display: block;
+}
+
 #message-list {
   flex-grow: 1;
   display: flex;
@@ -269,6 +273,36 @@ main > footer {
 @keyframes ellipsis {
   to {
     width: 1em;
+  }
+}
+
+.avatar::before {
+  /*Pseudo-element for pulsing-glow animation */
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 50%;
+  box-shadow: 0 0 6px 1px #18920d, 0 0 25px #9ce800;
+  transform: scale(0.6);
+  transition: transform 300ms;
+}
+
+.avatar.typing::before {
+  animation: pulsing-glow ease-in-out 800ms infinite;
+}
+
+@keyframes pulsing-glow {
+  0%,
+  100% {
+    transform: scale(0.85);
+  }
+  45%,
+  55% {
+    transform: scale(0.97);
   }
 }
 

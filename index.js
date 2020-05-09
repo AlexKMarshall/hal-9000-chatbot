@@ -2,6 +2,7 @@ const messageList = $("#message-list");
 const form = $("form");
 const input = $("input");
 const recipientStatus = $("#recipient-status");
+const avatar = $(".avatar");
 
 const getLatestMessageBlock = () => $(".message-block").last();
 
@@ -82,10 +83,12 @@ const setRecipientStatus = (status) => {
     case "typing":
       recipientStatus.addClass("typing");
       recipientStatus.text("is typing");
+      avatar.addClass("typing");
       return;
     case "online":
       recipientStatus.removeClass("typing");
       recipientStatus.text("Online");
+      avatar.removeClass("typing");
       return;
     default:
       return;
