@@ -37,6 +37,7 @@ img {
 input {
   border: none;
   font-size: inherit;
+  color: inherit;
 }
 
 ::placeholder {
