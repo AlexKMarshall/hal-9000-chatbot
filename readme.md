@@ -21,6 +21,10 @@ The app is made with vanilla HTML, CSS and Javascript. You can run it locally by
 - The app runs locally in the browser, and doesn't store your information or send messages to a server.
   HAL-9000 knows how to keep a secret. But if you close your browser, he won't remember anything you said.
 
+## Known issues and feature suggestions
+
+Please see the [issues page](https://github.com/AlexKMarshall/hal-9000-chatbot/issues)
+
 ## Acknowlegements
 
 <img src="https://alexkmarshall.github.io/hal-9000-chatbot/images/robot-red.svg" alt="Image of HAL-9000" width="60" height="60"/>
