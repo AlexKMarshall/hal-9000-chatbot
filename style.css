@@ -1,8 +1,4 @@
 /* LAYOUT */
-:root {
-  --vertical-spacing: 16px;
-  --gutter-spacing: 24x;
-}
 
 body {
   height: 100vh;
@@ -22,13 +18,13 @@ body {
 
 @media screen and (min-width: 650px) {
   #app {
-    max-width: calc(600px - (2 * var(--vertical-spacing)));
-    margin-top: var(--vertical-spacing);
+    max-width: calc(600px - (2 * 16px));
+    margin-top: 16px;
   }
 }
 
 h1 {
-  margin-bottom: var(--vertical-spacing);
+  margin-bottom: 16px;
   flex-grow: 0;
 }
 
@@ -40,7 +36,7 @@ main {
 }
 
 main > header {
-  padding: var(--vertical-spacing) 0;
+  padding: 16px 0;
   position: relative;
 }
 
@@ -49,7 +45,7 @@ main > header {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  right: var(--gutter-spacing);
+  right: 24px;
 }
 
 .avatar img {
@@ -60,7 +56,8 @@ main > header {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  padding: var(--gutter-spacing);
+
+  padding: 24px;
 }
 
 #message-list > :first-child {
@@ -113,7 +110,7 @@ main > footer {
 
 .message-block:last-child {
   scroll-snap-align: end;
-  scroll-margin-block-end: 10px;
+  scroll-margin-block-end: 32px; /*TODO this seems hacky, find another way to fix the scroll position */
 }
 
 /* TYPOGRAPHY */
@@ -160,15 +157,12 @@ footer small {
   --primary-color: rgb(239, 83, 81);
   --primary-color-darker: rgb(196, 65, 63);
   --primary-color-transparent: rgba(239, 83, 81, 0.5);
-  --white-text-color: rgba(255, 255, 255, 0.9);
-  --black-text-color: rgba(0, 0, 0, 0.8);
-  --grey-text-color: rgba(0, 0, 0, 0.5);
 }
 
 html,
 body {
   background-color: #f2ede7;
-  color: var(--black-text-color);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 #app {
@@ -176,7 +170,7 @@ body {
 }
 
 h1 {
-  color: var(--white-text-color);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 main {
@@ -185,7 +179,7 @@ main {
 
 .message.inbound .message__content {
   background-color: var(--primary-color);
-  color: var(--white-text-color);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .message.outbound .message__content {
@@ -193,38 +187,7 @@ main {
 }
 
 aside.timestamp {
-  color: var(--grey-text-color);
-}
-
-/* USER INPUT */
-
-main > footer:focus-within {
-  box-shadow: inset 0 0 5px var(--primary-color);
-}
-
-input:focus {
-  outline: none;
-}
-
-button {
-  color: rgba(0, 0, 0, 0.8);
-
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  transition: all 200ms ease;
-}
-
-button:focus,
-button:hover,
-button:active {
-  outline: none;
-  background-color: var(--primary-color);
-  color: var(--white-text-color);
-}
-
-button:active {
-  background-color: var(--primary-color-darker);
+  color: rgba(0, 0, 0, 0.5);
 }
 
 /* DECORATION */
@@ -325,7 +288,7 @@ main > footer {
   z-index: -1;
   border-radius: 50%;
   box-shadow: 0 0 6px 1px #18920d, 0 0 25px #9ce800;
-  transform: scale(0.6); /* Small enough to hide element behind avatar */
+  transform: scale(0.6);
   transition: transform 300ms;
 }
 
@@ -342,4 +305,35 @@ main > footer {
   55% {
     transform: scale(0.97);
   }
+}
+
+/* USER INPUT */
+
+main > footer:focus-within {
+  box-shadow: inset 0 0 5px var(--primary-color);
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  color: rgba(0, 0, 0, 0.8);
+
+  width: 38px;
+  height: 38px; /*TODO calc this */
+  border-radius: 50%;
+  transition: all 200ms ease;
+}
+
+button:focus,
+button:hover,
+button:active {
+  outline: none;
+  background-color: var(--primary-color);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+button:active {
+  background-color: var(--primary-color-darker);
 }
