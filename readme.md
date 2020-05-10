@@ -25,4 +25,4 @@ The app is made with vanilla HTML, CSS and Javascript. You can run it locally by
 
 <img src="https://alexkmarshall.github.io/hal-9000-chatbot/images/robot-red.svg" alt="Image of HAL-9000" width="60" height="60"/>
 
-The cute robot avatar - HAL's friendly face - is made by [Freepik](https://www.flaticon.com/authors/freepik title="Freepik") from [www.flaticon.com](https://www.flaticon.com/ title="Flaticon").
+The cute robot avatar - HAL's friendly face - is made by [Freepik](https://www.flaticon.com/authors/freepik "Freepik") from [www.flaticon.com](https://www.flaticon.com/ "Flaticon").
