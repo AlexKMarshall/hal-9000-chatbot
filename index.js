@@ -63,7 +63,6 @@ const addBotMessage = async (messageContent) => {
 
 const botResponds = async () => {
   // Split bot response into separate messages by sentence
-  // TODO handle ellipses
   const messages = getBotResponse()
     .split(".")
     .filter((message) => message !== " ");

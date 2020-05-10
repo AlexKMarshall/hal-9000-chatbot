@@ -110,7 +110,7 @@ main > footer {
 
 .message-block:last-child {
   scroll-snap-align: end;
-  scroll-margin-block-end: 32px; /*TODO this seems hacky, find another way to fix the scroll position */
+  scroll-margin-block-end: 32px;
 }
 
 /* TYPOGRAPHY */
@@ -321,7 +321,7 @@ button {
   color: rgba(0, 0, 0, 0.8);
 
   width: 38px;
-  height: 38px; /*TODO calc this */
+  height: 38px;
   border-radius: 50%;
   transition: all 200ms ease;
 }
