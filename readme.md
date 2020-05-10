@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/567de1d0-3762-49c9-8539-4290f84d063d/deploy-status)](https://app.netlify.com/sites/hal-9000-chatbot/deploys)
+
 # HAL-9000 Chatbot
 
 This app is a chat-bot for you to discuss matters of great importance with [HAL-9000](https://en.wikipedia.org/wiki/HAL_9000) from [2001: A Space Odyssey](<https://en.wikipedia.org/wiki/2001:_A_Space_Odyssey_(film)>).
@@ -5,7 +7,7 @@ The HAL-9000 Chatbot is a UI proof of concept, and doesn't contain a real AI. He
 
 I created it as my application submission for [Codeworks](https://codeworks.me/) bootcamp programme.
 
-[See it in action here](https://alexkmarshall.github.io/hal-9000-chatbot/)
+[See it in action here](https://hal-9000-chatbot.netlify.app/)
 
 ## Getting Started
 
