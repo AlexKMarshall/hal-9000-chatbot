@@ -53,10 +53,6 @@ const addMessage = async (messageContent, direction) => {
   message.removeClass("hidden");
 };
 
-const addBotMessage = async (messageContent) => {
-  addMessage(messageContent, "inbound");
-};
-
 const botResponds = async () => {
   // Split bot response into separate messages by sentence
   const messages = getBotResponse()
@@ -68,7 +64,7 @@ const botResponds = async () => {
   for (const message of messages) {
     setRecipientStatus("typing");
     await delay(messageTypingDurationMS(message)); //Bot spends time typing
-    addBotMessage(message);
+    addMessage(message, "inbound");
   }
   setRecipientStatus("online");
 };
