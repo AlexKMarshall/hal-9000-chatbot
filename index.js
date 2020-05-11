@@ -103,3 +103,14 @@ form.submit((event) => {
   input.val("");
   botResponds();
 });
+
+const getScrollState = (scrollableElement) => {
+  if (scrollableElement.scrollTop() === 0) return "top";
+  if (
+    // if visible height + how far we've scrolled >= total height, we've hit the bottom
+    scrollableElement.innerHeight() + scrollableElement.scrollTop() >=
+    scrollableElement.prop("scrollHeight")
+  )
+    return "bottom";
+  return "middle";
+};
