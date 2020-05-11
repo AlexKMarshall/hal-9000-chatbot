@@ -34,7 +34,7 @@ const updateTimestamp = (messageBlock) =>
   messageBlock.children("aside.timestamp").text(currentTime());
 
 const addMessage = async (messageContent, direction) => {
-  const scrollState = getScrollState(messageList); // Get scroll position adding message
+  const scrollState = getScrollState(messageList); // Get scroll position before adding message
 
   const message = newMessage(messageContent, direction);
   let messageBlock;
