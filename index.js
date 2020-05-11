@@ -34,8 +34,9 @@ const updateTimestamp = (messageBlock) =>
   messageBlock.children("aside.timestamp").text(currentTime());
 
 const addMessage = async (messageContent, direction) => {
-  const message = newMessage(messageContent, direction);
+  const scrollState = getScrollState(messageList); // Get scroll position adding message
 
+  const message = newMessage(messageContent, direction);
   let messageBlock;
   if (getLatestBlockDirection() === direction) {
     // Latest block is same direction so use it
@@ -51,6 +52,8 @@ const addMessage = async (messageContent, direction) => {
 
   await delay(10); // Delay so that CSS can manage the transition from hidden
   message.removeClass("hidden");
+
+  if (scrollState === "bottom") scrollToBottom(messageList); // Only auto scroll if user is already at the bottom
 };
 
 const botResponds = async () => {
@@ -97,13 +100,15 @@ form.submit((event) => {
 });
 
 const getScrollState = (scrollableElement) => {
-  if (scrollableElement.scrollTop() === 0) return "top";
   if (
     // if visible height + how far we've scrolled >= total height, we've hit the bottom
     scrollableElement.innerHeight() + scrollableElement.scrollTop() >=
-    scrollableElement.prop("scrollHeight")
-  )
+    scrollableElement.prop("scrollHeight") - 10 // include margin of error for being near bottom
+  ) {
     return "bottom";
+  }
+
+  if (scrollableElement.scrollTop() === 0) return "top";
   return "middle";
 };
 
