@@ -106,3 +106,8 @@ const getScrollState = (scrollableElement) => {
     return "bottom";
   return "middle";
 };
+
+const scrollToBottom = (scrollableElement) => {
+  const maxHeight = scrollableElement.prop("scrollHeight");
+  scrollableElement.animate({ scrollTop: maxHeight });
+};
