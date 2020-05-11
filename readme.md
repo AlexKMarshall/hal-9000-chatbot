@@ -11,7 +11,7 @@ I created it as my application submission for [Codeworks](https://codeworks.me/)
 
 ## Getting Started
 
-The app is made with vanilla HTML, CSS and Javascript. You can run it locally by cloning the repo and opening index.html.
+The app is made with vanilla HTML, CSS and Javascript. You can run it locally by cloning the [repo](https://github.com/AlexKMarshall/hal-9000-chatbot) and opening index.html.
 
 ## Features
 
