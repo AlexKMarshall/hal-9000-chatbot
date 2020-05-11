@@ -53,10 +53,6 @@ const addMessage = async (messageContent, direction) => {
   message.removeClass("hidden");
 };
 
-const addUserMessage = async (messageContent) => {
-  addMessage(messageContent, "outbound");
-};
-
 const addBotMessage = async (messageContent) => {
   addMessage(messageContent, "inbound");
 };
@@ -99,7 +95,7 @@ form.submit((event) => {
   const message = input.val().trim();
   if (!message) return;
 
-  addUserMessage(message);
+  addMessage(message, "outbound");
   input.val("");
   botResponds();
 });
